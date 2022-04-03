@@ -59,6 +59,22 @@ var maxProfit = function (prices) {
   }
 };
 
+// best solution
+var bestSolution = function (prices) {
+  let maxProfit = 0;
+  let left = 0;
+  let right = 1;
+
+  while (right < prices.length) {
+    if (prices[right] < prices[left]) left = right;
+    else maxProfit = Math.max(maxProfit, prices[right] - prices[left]);
+
+    right++;
+  }
+
+  return maxProfit;
+};
+
 const prices = [
   5507, 107, 9733, 1319, 2851, 8377, 4201, 3299, 6553, 7541, 9677, 3727, 8297, 283, 9283, 1597, 6763, 3371, 5351, 4049, 127, 6337, 3023,
   5237, 3229, 7247, 6449, 6521, 2027, 8779, 2503, 2203, 8423, 317, 1759, 4229, 7121, 8573, 8209, 61, 6367, 7237, 5683, 9743, 8387, 2657,
